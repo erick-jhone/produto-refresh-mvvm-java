@@ -1,12 +1,13 @@
-package com.erick.observerproduct.presenter;
+package com.erick.observerproduct.ui;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.erick.observerproduct.data.model.Produto;
-import com.erick.observerproduct.data.model.ProdutoRepository;
+import com.erick.observerproduct.data.repositories.ProdutoRepository;
 import com.erick.observerproduct.data.model.ResultAPI;
+import com.erick.observerproduct.data.repositories.ProdutoRepositoryInterface;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,11 +15,12 @@ import java.util.TimerTask;
 public class ProdutoViewModel extends ViewModel {
 
     private final MutableLiveData<Produto> produtoLiveData = new MutableLiveData<>();
-    private final ProdutoRepository repository = new ProdutoRepository();
     private final Timer timer = new Timer();
 
-    public ProdutoViewModel() {
+    private final ProdutoRepositoryInterface repository;
 
+    public ProdutoViewModel(ProdutoRepositoryInterface produtoRepository) {
+        this.repository = produtoRepository;
         iniciarConsultaPeriodica();
     }
 

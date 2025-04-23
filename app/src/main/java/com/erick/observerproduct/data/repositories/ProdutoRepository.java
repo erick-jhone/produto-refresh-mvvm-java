@@ -1,5 +1,8 @@
-package com.erick.observerproduct.data.model;
+package com.erick.observerproduct.data.repositories;
 
+import com.erick.observerproduct.data.api.ProdutoCallAPI;
+import com.erick.observerproduct.data.model.Produto;
+import com.erick.observerproduct.data.model.ResultAPI;
 import com.erick.observerproduct.data.setup.RetrofitClient;
 
 import java.util.List;
@@ -8,11 +11,13 @@ import java.util.concurrent.Executors;
 
 import retrofit2.Response;
 
-public class ProdutoRepository {
+public class ProdutoRepository implements ProdutoRepositoryInterface {
 
     private final ProdutoCallAPI produtoAPI = RetrofitClient.getProdutoAPI();
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
+
+    @Override
     public void getProduto(ResultAPI callback) {
         executorService.execute(() -> {
             try {

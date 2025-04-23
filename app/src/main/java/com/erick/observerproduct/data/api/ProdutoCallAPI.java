@@ -1,4 +1,6 @@
-package com.erick.observerproduct.data.model;
+package com.erick.observerproduct.data.api;
+
+import com.erick.observerproduct.data.model.Produto;
 
 import java.util.List;
 

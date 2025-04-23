@@ -19,6 +19,12 @@ public class Produto {
     @Expose
     private double valor;
 
+    public Produto(long id, String nome, double valor) {
+        this.id = id;
+        this.nome = nome;
+        this.valor = valor;
+    }
+
     public long getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 package com.erick.observerproduct.data.setup;
 
-import com.erick.observerproduct.data.model.ProdutoCallAPI;
+import com.erick.observerproduct.data.api.ProdutoCallAPI;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
